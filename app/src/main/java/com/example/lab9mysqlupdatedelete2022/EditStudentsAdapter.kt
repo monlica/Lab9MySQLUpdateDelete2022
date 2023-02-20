@@ -14,7 +14,7 @@ class EditStudentsAdapter(val items :List<Student>, val context: Context):
     inner class ViewHolder(view: View, val binding: EditDeleteItemLayoutBinding) :
         RecyclerView.ViewHolder(view) {
         init {
-            binding.tvEditDelete.setOnClickListener {
+            binding.txtEditDelete.setOnClickListener {
                 val item = items[adapterPosition]
                 val contextView: Context = view.context
                 val intent = Intent(contextView, EditDeleteActivity::class.java)
@@ -25,7 +25,6 @@ class EditStudentsAdapter(val items :List<Student>, val context: Context):
             }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = EditDeleteItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context), parent,
@@ -35,11 +34,12 @@ class EditStudentsAdapter(val items :List<Student>, val context: Context):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val binding_holder = holder.binding
-        binding_holder.tvID.text =  items[position].std_id
-        binding_holder.tvName.text = items[position].std_name
+        binding_holder.txtID.text =  items[position].std_id
+        binding_holder.txtName.text = items[position].std_name
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
+
 }
